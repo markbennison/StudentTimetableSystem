@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<navigation-rule>
+	<!-- ***** ***** ***** ***** ***** -->
+	<!-- ***** SITE NAVIGATION ***** -->
+	<!-- ***** ***** ***** ***** ***** -->
+	<from-view-id>*</from-view-id>
+	
+	<!-- *** GENERAL *** -->
+	<navigation-case>
+		<from-outcome>home</from-outcome>
+		<to-view-id>/index.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>login</from-outcome>
+		<to-view-id>/login.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>logout</from-outcome>
+		<to-view-id>/login.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>message</from-outcome>
+		<to-view-id>message.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>timetable</from-outcome>
+		<to-view-id>/timetable.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	
+	<!-- *** ROOM *** -->
+	<navigation-case>
+		<from-outcome>listrooms</from-outcome>
+		<to-view-id>manage/listrooms.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewroom</from-outcome>
+		<to-view-id>manage/viewroom.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editroom</from-outcome>
+		<to-view-id>admin/editroom.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>addroom</from-outcome>
+		<to-view-id>admin/addroom.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	
+	<!-- *** BOOKING *** -->
+	<navigation-case>
+		<from-outcome>listbookings</from-outcome>
+		<to-view-id>manage/listbookings.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewbooking</from-outcome>
+		<to-view-id>manage/viewbooking.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editbooking</from-outcome>
+		<to-view-id>admin/editbooking.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>addbooking</from-outcome>
+		<to-view-id>admin/addbooking.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	
+	<!-- *** CLASS *** -->
+	<navigation-case>
+		<from-outcome>listclasses</from-outcome>
+		<to-view-id>manage/listclasses.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewclass</from-outcome>
+		<to-view-id>manage/viewclass.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editclass</from-outcome>
+		<to-view-id>admin/editclass.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>addclass</from-outcome>
+		<to-view-id>admin/addclass.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+
+	<!-- *** MODULE *** -->
+	<navigation-case>
+		<from-outcome>listmodules</from-outcome>
+		<to-view-id>manage/listmodules.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewmodule</from-outcome>
+		<to-view-id>manage/viewmodule.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editmodule</from-outcome>
+		<to-view-id>admin/editmodule.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>addmodule</from-outcome>
+		<to-view-id>admin/addmodule.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	
+	<!-- *** USER *** -->
+	<navigation-case>
+		<from-outcome>listusers</from-outcome>
+		<to-view-id>manage/listusers.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewuser</from-outcome>
+		<to-view-id>manage/viewuser.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>edituser</from-outcome>
+		<to-view-id>admin/edituser.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>adduser</from-outcome>
+		<to-view-id>admin/adduser.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	
+	<!-- *** ROLE *** -->
+	<navigation-case>
+		<from-outcome>listroles</from-outcome>
+		<to-view-id>admin/listroles.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>viewrole</from-outcome>
+		<to-view-id>admin/viewrole.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editrole</from-outcome>
+		<to-view-id>admin/editrole.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>addrole</from-outcome>
+		<to-view-id>admin/addrole.xhtml</to-view-id>
+		<redirect />
+	</navigation-case>
+
+</navigation-rule>
+
+	<!-- ***** ***** ***** ***** ***** -->
+	<!-- ***** ***** OTHER ***** ***** -->
+	<!-- ***** ***** ***** ***** ***** -->
+
+<managed-bean>
+	<managed-bean-name>roomManagedBean</managed-bean-name>
+	<managed-bean-class>com.jwt.jsf.RoomManagedBean</managed-bean-class>
+	<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+	<managed-bean-name>messageManagedBean</managed-bean-name>
+	<managed-bean-class>com.jwt.jsf.MessageManagedBean</managed-bean-class>
+	<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+
+</faces-config>

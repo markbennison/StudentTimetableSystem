@@ -1,0 +1,35 @@
+DROP TABLE ClassList;
+CREATE TABLE ClassList
+(
+    classid INTEGER NOT NULL,
+    userid INTEGER NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    PRIMARY KEY (classid, userid),
+    FOREIGN KEY (classid) REFERENCES Class(id),
+    FOREIGN KEY (userid) REFERENCES Users(id)
+);
+
+
+
+
+INSERT INTO MARKBENNISON.CLASSLIST (CLASSID, USERID, ROLE) 
+VALUES  (1,2,'staff'),
+	(1,7,'student'),
+	(1,8,'student'),
+	(1,9,'student'),
+	(2,3,'staff'),
+	(2,10,'student'),
+	(2,11,'student'),
+	(2,12,'student'),
+	(3,4,'staff'),
+	(3,11,'student'),
+	(3,12,'student'),
+	(3,13,'student'),
+	(4,5,'staff'),
+	(4,8,'student'),
+	(4,9,'student'),
+	(4,10,'student'),
+	(5,6,'staff'),
+	(5,12,'student'),
+	(5,13,'student'),
+	(5,14,'student')

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">		
+				<div class="row">
+					<div class="col-xs-12">
+						<h1>Edit Class</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h:messages errorClass="alert alert-danger" infoClass="alert alert-info" warnClass="alert alert-warning" />
+						<h:panelGrid id="datepair" columns="2" class="table datepair">
+							<f:facet name = "header">
+								<h:panelGroup>
+									<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+										<div class="btn-group" role="group" aria-label="control"><h:commandButton type="submit" value="Delete" action="#{classManagedBean.deleteRecord(classManagedBean.id)}" immediate="true" class="btn btn-danger" /></div>
+										<div class="btn-group" role="group" aria-label="control"><h:commandButton type="submit" value="Save" action="#{classManagedBean.editRecord()}" class="btn btn-default" /></div>
+									</div>
+								</h:panelGroup>
+							</f:facet>
+							<h:outputText value="ID: " />
+							<h:outputText id="id" value="#{classManagedBean.id}" />
+							<h:outputText value="Module: " />
+							<h:selectOneMenu value="#{classManagedBean.moduleidvalue}" >
+								<f:selectItems value="#{moduleManagedBean.list}" var="item" itemLabel="#{item.title} (#{item.id})" itemValue="#{item.id}"/>
+							</h:selectOneMenu>
+							<h:outputText value="Start Date: " />
+							<h:inputText id="startdatepicker" class="date start" value="#{classManagedBean.startdate}" required="true" requiredMessage="Please select a start date" autocomplete="off" >
+								<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="Europe/London" />
+							</h:inputText>
+							<h:outputText value="End Date: " />
+							<h:inputText id="enddatepicker" class="date end" value="#{classManagedBean.enddate}" required="true" requiredMessage="Please select an end date" autocomplete="off" >
+								<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="Europe/London" />
+							</h:inputText>
+						</h:panelGrid>		
+						
+						<div class="row">
+							<div class="col-xs-12">
+								<h3>Class List</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<h:dataTable value="#{classlistManagedBean.classlist}" var="o" styleClass="table table-hover">
+									<f:facet name="header">
+										<h:panelGroup>
+											<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+												<div class="input-group btn-group" role="group" aria-label="control" >
+													<h:selectOneMenu value="#{classlistManagedBean.useridvalue}" class="form-control">
+														<f:selectItems value="#{userManagedBean.list}" var="item" itemLabel="#{item.forename} #{item.surname} (#{item.id})" itemValue="#{item.id}" class="form-control"/>
+													</h:selectOneMenu>
+												<span class="input-group-btn"><h:commandButton type="submit" value="Add" action="#{classlistManagedBean.addClassMember()}" class="btn btn-default" /></span>
+												</div>
+											</div>
+										</h:panelGroup>
+									</f:facet>
+									<h:column>
+										<f:facet name="header">Student ID</f:facet>
+										#{o.userid.id}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Username</f:facet>
+										#{o.userid.username}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Forename</f:facet>
+										#{o.userid.forename}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Surname</f:facet>
+										#{o.userid.surname}
+									</h:column>
+									<h:column>
+										<f:facet name="header">View</f:facet>
+										<h:commandLink type="submit" value="View" action="#{userManagedBean.getRecord(o.userid.id)}" class="" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">Delete</f:facet>
+										<h:commandLink type="submit" value="Delete" action="#{classlistManagedBean.removeClassMember(o.userid.id)}" class="" />
+									</h:column>
+								</h:dataTable>   
+							</div>
+						</div>
+					</div>
+				</div>
+			</ui:define>
+        </ui:composition>	
+    </h:body>
+</html>
+

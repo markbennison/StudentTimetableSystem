@@ -1,0 +1,22 @@
+DROP TABLE Modules;
+CREATE TABLE Modules
+(
+    id INTEGER NOT NULL 
+       PRIMARY KEY 
+       GENERATED ALWAYS AS IDENTITY 
+       (START WITH 1, INCREMENT BY 1),
+    title VARCHAR(50) NOT NULL UNIQUE,
+    modulecode VARCHAR(20) NOT NULL,
+    leader INTEGER NOT NULL,
+    FOREIGN KEY (leader) REFERENCES Users(id)
+);
+
+
+
+
+INSERT INTO MARKBENNISON.MODULES (TITLE, MODULECODE, LEADER) 
+VALUES ('Art', 'AR1234', 2), 
+	('Biology', 'BI2345', 3), 
+	('Computing', 'CO3456', 4), 
+	('Dance', 'DA4567', 5), 
+	('Engineering', 'EN5678', 6);

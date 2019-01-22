@@ -1,0 +1,30 @@
+DROP TABLE Rooms;
+CREATE TABLE Rooms
+(
+    id INTEGER NOT NULL 
+       PRIMARY KEY 
+       GENERATED ALWAYS AS IDENTITY 
+       (START WITH 1, INCREMENT BY 1),
+    name VARCHAR(20) NOT NULL,
+    description VARCHAR(255) NOT NULL
+);
+
+
+
+
+INSERT INTO MARKBENNISON.ROOMS (NAME, DESCRIPTION) 
+VALUES ('A001', 'Lecture Theatre (Large)'), 
+	('A002', 'Lecture Theatre (Small)'), 
+	('A101', 'Science Lab'), 
+	('A102', 'Science Lab'), 
+	('A103', 'Innovation Space'), 
+	('A104', 'Classroom'), 
+	('A201', 'Computer Lab'), 
+	('A202', 'Computer Lab'), 
+	('B001', 'Arts Theatre'), 
+	('B101', 'Dance Studio'), 
+	('B102', 'Classroom'), 
+	('B103', 'Classroom'), 
+	('B104', 'Classroom'), 
+	('B201', 'Art Studio #1'), 
+	('B202', 'Art Studio #2');

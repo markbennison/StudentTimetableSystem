@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core" >
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1>View Room</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h:messages errorClass="alert alert-danger" infoClass="alert alert-info" warnClass="alert alert-warning" />
+						<h:panelGrid columns="2" class="table">
+							<f:facet name = "header">
+								<h:panelGroup>
+									<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+										<div class="btn-group" role="group" aria-label="control"><h:commandButton type="submit" value="Edit" action="editroom" class="btn btn-default #{authenticationManagedBean.getAdminMenuVisibility()}" /></div>
+									</div>
+								</h:panelGroup>
+							</f:facet>
+							<h:outputText value="ID: " />
+							<h:outputText id="id" value="#{roomManagedBean.id}" />
+							<h:outputText value="Name: " />
+							<h:outputText id="name" value="#{roomManagedBean.name}" />
+							<h:outputText value="Description: " />
+							<h:outputText id="description" value="#{roomManagedBean.description}" />
+						</h:panelGrid>   
+						
+					</div>
+				</div>
+			</ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1>Timetable</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h:dataTable value="#{timetableManagedBean.weekbookings}" var="o" styleClass="table table-hover">
+							<f:facet name="header">
+								<h:panelGroup>
+									<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+										<div class="input-group btn-group">
+											<span class="input-group-addon" id="weekselect">Week</span>
+											<div aria-describedby="weekselect" class="datepair">
+												<h:inputText id="weekpicker" value="#{timetableManagedBean.dateselect}" class="form-control date" autocomplete="off" requiredMessage="Please select a week commencing" >
+													<f:ajax event="change" listener="#{timetableManagedBean.updateWeek()}" />
+													<f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="Europe/London" />
+												</h:inputText>
+											</div>
+											<div class="input-group-btn" aria-describedby="weekselect" ><h:commandButton type="submit" value="Update" action="#{timetableManagedBean.updateWeek()}" class="btn btn-default" /></div>
+										</div>
+									</div>
+								</h:panelGroup>
+							</f:facet>
+							
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								#{o.id}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Class : Module</f:facet>
+								#{o.classid.id} : #{o.classid.moduleid.title}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Room</f:facet>
+								#{o.roomid.name}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Date</f:facet>
+								<h:outputText id="date" value="#{o.dateandtime}" ><f:convertDateTime type="date" pattern="EEE dd/MM/yyyy" timeZone="Europe/London" /></h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Time</f:facet>
+								<h:outputText id="time" value="#{o.dateandtime}" ><f:convertDateTime type="date" pattern="HH:mm" /></h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header">Duration</f:facet>
+								#{o.duration}
+							</h:column>
+						</h:dataTable>   
+					</div>
+				</div>	
+				
+				<div class='row' style='position: relative;'>
+					 <h:outputText value="${timetableManagedBean.htmltable}" escape="false" />
+				</div>
+			</ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

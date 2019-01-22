@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core" >
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1>List Classes</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h:dataTable value="#{classManagedBean.list}" var="o" styleClass="table table-hover">
+							<f:facet name="header">
+								<h:panelGroup>
+									<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+										<div class="input-group btn-group" role="group" aria-label="control" >
+										<h:inputText id="id" value="#{classManagedBean.id}" class="form-control" />
+										<span class="input-group-btn"><h:commandButton type="submit" value="Find ID" action="#{classManagedBean.getRecord()}" class="btn btn-default" /></span>
+										</div>
+										<div class="btn-group" role="group" aria-label="control"><h:commandLink type="submit" value="Add New" action="addclass" class="btn btn-default #{authenticationManagedBean.getAdminMenuVisibility()}" /></div>
+									</div>
+								</h:panelGroup>
+							</f:facet>
+							
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								#{o.id}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Module</f:facet>
+								#{o.moduleid.title}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Start Date</f:facet>
+								<h:outputText id="startdate" value="#{o.startdate}" ><f:convertDateTime type="date" pattern="EEE dd/MM/yyyy" timeZone="Europe/London" /></h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header">End Date</f:facet>
+								<h:outputText id="enddate" value="#{o.enddate}" ><f:convertDateTime type="date" pattern="EEE dd/MM/yyyy" timeZone="Europe/London" /></h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header">View</f:facet>
+								<h:commandLink type="submit" value="View" action="#{classManagedBean.getRecord(o.id)}" class="" />
+							</h:column>
+						</h:dataTable>   
+					</div>
+				</div>
+			</ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

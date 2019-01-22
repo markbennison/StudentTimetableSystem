@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+				<div class="jumbotron">
+					<h1>Student Timetabling System</h1>
+					<p class="lead">Welcome to your timetable system (by Mark Bennison).</p>
+					<p><h:commandLink type="submit" value="Login &raquo;" action="login" immediate="true" class="btn btn-primary btn-lg" /></p>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<h2>View Timetable</h2>
+						<p>
+							Staff and students alike can view their timetables here. Just login and click the timetable link.
+						</p>
+						<p>
+							<h:commandLink type="submit" value="Timetable &raquo;" action="timetable" immediate="true" class="btn btn-default #{authenticationManagedBean.userMenuVisibility}" />
+						</p>
+					</div>
+					<div class="col-md-4">
+						<h2>Teaching Staff</h2>
+						<p>
+							Teaching staff can view users, modules, rooms and see when and where any classes are taking place. They also have access to class lists for all classes.
+						</p>
+						<p>
+							<h:commandLink type="submit" value="List classes &raquo;" action="listclasses" immediate="true" class="btn btn-default #{authenticationManagedBean.staffMenuVisibility}" />
+						</p>
+					</div>
+					<div class="col-md-4">
+						<h2>Administration Team</h2>
+						<p>
+							Administrators can edit or add new users, modules, class lists, and rooms. They also have control over timetables by booking of classes in rooms. Only administrators can view the user-roles.
+						</p>
+						<p>
+							<h:commandLink type="submit" value="List bookings &raquo;" action="listbookings" immediate="true" class="btn btn-default #{authenticationManagedBean.adminMenuVisibility}" />
+						</p>
+					</div>
+				</div>
+			</ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

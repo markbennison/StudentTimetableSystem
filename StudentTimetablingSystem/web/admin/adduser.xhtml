@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core" >
+    <h:body>
+		<ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+				<h1>Add a User</h1>
+				<div class="row">
+					<div class="col-xs-12">
+						
+						<h:messages errorClass="alert alert-danger" infoClass="alert alert-info" warnClass="alert alert-warning" />
+						<h:panelGrid columns="2" class="table">
+							<f:facet name="header">
+								<h:panelGroup>
+									<div class="btn-toolbar pull-right" role="toolbar" aria-label="control">
+										<div class="btn-group" role="group" aria-label="control"><h:commandButton type="submit" value="Create" action="#{userManagedBean.createRecord()}" class="btn btn-default"/></div>
+									</div>
+								</h:panelGroup>
+							</f:facet>
+							
+							<f:event listener="#{userManagedBean.validatePasswordCheck}" type="postValidate" />
+							
+							<h:outputText value="ID: "/>
+							<h:inputText id="id" value="Auto" disabled="true"/>
+
+							<h:outputText value="Username: " />
+							<h:inputText id="username"
+										 value="#{userManagedBean.username}"
+										 maxlength="20" 
+										 required="true"
+										 requiredMessage="Please enter a username" 
+										 validator="#{userManagedBean.validateUsername}"
+										 validatorMessage="Error: Username" />
+
+							<h:outputText value="Password: " />
+							<h:inputText id="passwordplain"
+										 value="#{userManagedBean.passwordplain}"
+										 maxlength="20" 
+										 required="true"
+										 requiredMessage="Please enter a password" 
+										 validator="#{userManagedBean.validatePasswordPlain}"
+										 validatorMessage="Error: Password Entry" />
+
+							<h:outputText value="Re-enter Password: " />
+							<h:inputText id="passwordcheck"
+										 value="#{userManagedBean.passwordcheck}"
+										 maxlength="20" 
+										 required="true"
+										 requiredMessage="Please confirm the password" 
+										 validatorMessage="Error: Password Confirmation" />
+
+							<h:outputText value="Forename: " />
+							<h:inputText id="forename"
+										 value="#{userManagedBean.forename}"
+										 maxlength="20" 
+										 required="true"
+										 requiredMessage="Please enter a forename"
+										 validator="#{userManagedBean.validateForename}"
+										 validatorMessage="Error: Forename" />
+
+							<h:outputText value="Surname: " />
+							<h:inputText id="surname"
+										 value="#{userManagedBean.surname}"
+										 maxlength="20" 
+										 required="true"
+										 requiredMessage="Please enter a surname"
+										 validator="#{userManagedBean.validateSurname}"
+										 validatorMessage="Error: Surname" />
+							
+							<h:outputText value="Role: " />
+							<h:selectOneMenu value="#{userManagedBean.roleidvalue}" >
+								<f:selectItems value="#{roleManagedBean.list}" var="r" itemLabel="#{r.name}" itemValue="#{r.id}"/>
+							</h:selectOneMenu>
+							
+						</h:panelGrid>   
+					</div>
+				</div>
+			</ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

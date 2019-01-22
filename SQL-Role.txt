@@ -1,0 +1,16 @@
+DROP TABLE Roles;
+CREATE TABLE Roles
+(
+    id INTEGER NOT NULL 
+       PRIMARY KEY 
+       GENERATED ALWAYS AS IDENTITY 
+       (START WITH 1, INCREMENT BY 1),
+    name VARCHAR(20) NOT NULL,
+    accesslevel INTEGER NOT NULL
+);
+
+
+INSERT INTO MARKBENNISON.ROLES (NAME, ACCESSLEVEL) 
+VALUES ('Administrator', 1), 
+	('Staff', 2), 
+	('Student', 3);
